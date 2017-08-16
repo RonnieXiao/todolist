@@ -1,12 +1,12 @@
 <template>
-  <mt-tabbar v-model="selected" fixed @click.native="handleClick">
+  <mt-tabbar v-model="selected" fixed >
     <mt-tab-item id="home">
       <img slot="icon" src="/static/img/28.png">home
-      <!--<router-link to="/index/"></router-link>-->
+      <!--<router-link to="/index/">home</router-link>-->
     </mt-tab-item>
     <mt-tab-item id="one">
       <img slot="icon" src="/static/img/28.png">one
-      <!--<router-link to="/Hello"></router-link>-->
+      <!--<router-link to="/Hello">one</router-link>-->
     </mt-tab-item>
     <mt-tab-item id="two">
       <img slot="icon" src="/static/img/28.png">two
@@ -27,10 +27,10 @@
         selected: ''
       }
     },
-    methods: {
-      handleClick: function () {
-        console.log(this.selected)
-        switch (this.selected) {
+    watch: {
+      selected: function (val, oldVal) {
+        console.log(val)
+        switch (val) {
           case 'home':
             this.$router.push({path: 'index'})
             break
