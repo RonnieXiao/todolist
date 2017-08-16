@@ -2,19 +2,25 @@
 <div class="dialog">
   <div class="loginPage">
     <h1>登录</h1>
-    <el-form>
-      <el-form-item label="user">
-        <el-input type="text" id="user" v-model="formName.user" @blur="inputBlur('user',formName.user)"></el-input>
-        <p>{{formName.userError}}</p>
-      </el-form-item>
+    <mt-field id="user" label="用户名" placeholder="请输入用户名" v-model="formName.user" @blur="inputBlur('user',formName.user)"></mt-field>
+    <p>{{formName.userError}}</p>
+    <mt-field id="password" label="密码" placeholder="请输入密码" v-model="formName.password" @blur="inputBlur('password',formName.password)"></mt-field>
+    <p>{{formName.passwordError}}</p>
+    <mt-button type="primary" @click="submitForm('formName')" v-bind="formName">提交</mt-button>
+    <mt-button type="default" @click="resetForm">重置</mt-button>
+    <!--<el-form>-->
+      <!--<el-form-item label="user">-->
+        <!--<el-input type="text" id="user" v-model="formName.user" @blur="inputBlur('user',formName.user)"></el-input>-->
+        <!--<p>{{formName.userError}}</p>-->
+      <!--</el-form-item>-->
 
-      <el-form-item label="password">
-        <el-input type="password" id="password" v-model="formName.password" @blur="inputBlur('password',formName.password)"></el-input>
-        <p>{{formName.passwordError}}</p>
-      </el-form-item>
-      <el-button type="primary" @click="submitForm('formName')" v-bind:disabled="formName.beDisabled">提交</el-button>
-      <el-button @click="resetForm">重置</el-button>
-    </el-form>
+      <!--<el-form-item label="password">-->
+        <!--<el-input type="password" id="password" v-model="formName.password" @blur="inputBlur('password',formName.password)"></el-input>-->
+        <!--<p>{{formName.passwordError}}</p>-->
+      <!--</el-form-item>-->
+      <!--<el-button type="primary" @click="submitForm('formName')" v-bind:disabled="formName.beDisabled">提交</el-button>-->
+      <!--<el-button @click="resetForm">重置</el-button>-->
+    <!--</el-form>-->
   </div>
 </div>
 </template>
@@ -79,7 +85,7 @@
         } else if (password !== '123') {
           this.formName.passwordError = '密码错误'
         } else if (user === '123' && password === '123') {
-          this.$router.push({path: 'index/hey'})
+          this.$router.push({path: 'index'})
         }
       },
       inputBlur: function (errorItem, inputContent) {

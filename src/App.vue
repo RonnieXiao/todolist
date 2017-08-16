@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-link to="/index/hey">click me</router-link>
     <router-view></router-view>
     <router-view></router-view>
   </div>

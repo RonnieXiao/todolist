@@ -1,12 +1,12 @@
 <template>
-  <mt-tabbar v-model="selected" value="#home" fixed>
+  <mt-tabbar v-model="selected" fixed @click.native="handleClick">
     <mt-tab-item id="home">
-      <img slot="icon" src="/static/img/28.png">
-      <router-link to="/index/">home</router-link>
+      <img slot="icon" src="/static/img/28.png">home
+      <!--<router-link to="/index/"></router-link>-->
     </mt-tab-item>
     <mt-tab-item id="one">
-      <img slot="icon" src="/static/img/28.png">
-      <router-link to="/Hello">one</router-link>
+      <img slot="icon" src="/static/img/28.png">one
+      <!--<router-link to="/Hello"></router-link>-->
     </mt-tab-item>
     <mt-tab-item id="two">
       <img slot="icon" src="/static/img/28.png">two
@@ -24,12 +24,20 @@
     data () {
       return {
         msg: 'aaa',
-        selected: '#home'
+        selected: ''
       }
     },
-    watch: {
-      selected: function (val, oldVal) {
-        console.log(val)
+    methods: {
+      handleClick: function () {
+        console.log(this.selected)
+        switch (this.selected) {
+          case 'home':
+            this.$router.push({path: 'index'})
+            break
+          case 'one':
+            this.$router.push({path: 'Hello'})
+            break
+        }
       }
     }
   }
