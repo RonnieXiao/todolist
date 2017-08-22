@@ -1,19 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+    <m-header></m-header>
+    <!--<img src="./assets/logo.png">-->
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import index from './components/index.vue'
-  import login from './components/login.vue'
+  import mHeader from './components/header'
+//  import index from './components/index.vue'
+//  import login from './components/login.vue'
 export default {
     name: 'app',
     components: {
-      index,
-      login
+//      index,
+//      login,
+      mHeader
     }
 }
 </script>

@@ -31,11 +31,11 @@
         <router-view></router-view>
       </div>
       <div class="movie" v-show="selected == 'movie'">
-        <div class="tab-menu">
-          <div :class="[tabName,{checkStyle:chooseIndex == index}]" @click='chooseItem(index,item.type)'
-               v-for='(item,index) in menuList'>{{item.name}}
-          </div>
-        </div>
+        <!--<div class="tab-menu">-->
+          <!--<div :class="[tabName,{checkStyle:chooseIndex == index}]" @click='chooseItem(index,item.type)'-->
+               <!--v-for='(item,index) in menuList'>{{item.name}}-->
+          <!--</div>-->
+        <!--</div>-->
         <movie></movie>
       </div>
       <div class="radio" v-show="selected == 'radio'">
@@ -52,7 +52,7 @@
 
 </template>
 <script>
-//  import movie from 'movie.vue'
+  import movie from './movie'
 //  import radio from 'status.vue'
 //  import search from 'group.vue'
 //  import myself from 'myself.vue'
@@ -91,13 +91,13 @@
             break
         }
       }
-    }
-//    components: {
-//      movie,
+    },
+    components: {
+      movie
 //      radio,
 //      search,
 //      myself
-//    }
+    }
   }
 </script>
 <style>

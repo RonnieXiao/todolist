@@ -4,8 +4,11 @@ import Hello from '@/components/Hello'
 import index from '@/components/index'
 // import login from '@/components/login'
 import navbar from '@/components/navbar'
+import head from '@/components/header'
 import home from '@/pages/Home'
+import VueResource from 'vue-resource'
 
+Vue.use(VueResource)
 Vue.use(Router)
 
 export default new Router({
@@ -27,8 +30,13 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'Login',
-      component: home
+      name: 'Home',
+      component: home,
+      children: [{
+        path: '/head',
+        name: 'head',
+        component: head
+      }]
     }
   ]
 })
